@@ -4,17 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form Validation</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/mainStyles.css" />
     <script src="js/script.js" defer></script>
   </head>
   <body>
     <header>
       <h1 class="mainHeading">Form Validation</h1>
-      <h2 class="subHeading">Powered By JavaScript</h2>
+      <h2 class="subHeading">Powered By <span class="accentRed">J</span>ava<span class="accentRed">S</span>cript</h2>
+      <h3 class="createdHeading">Created By <span class="accentRed">C</span>arlos <span class="accentRed">R</span>obles</h3>
     </header>
     <main class="container">
       <form id="form" class="form">
-        <fieldset>
           <legend class="formHeading">Register With Us!</legend>
 
           <div class="formControl">
@@ -51,7 +54,7 @@
           </div>
 
           <div class="formControl">
-            <label for="password">Confirm Password</label>
+            <label for="password">Confirm Password:</label>
             <input
               type="password"
               id="password"
@@ -63,7 +66,6 @@
           
           <button id="submit">Submit</button>
 
-        </fieldset>
       </form>
     </main>
   </body>
