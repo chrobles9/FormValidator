@@ -52,6 +52,19 @@ function checkUserName(input, min, max){
   }
 }
 
+// TODO: valid email checkBlank
+
+
+// TODO: Password length checkBlank
+
+
+// TODO: Confirm Passwords match 
+
+
+
+
+
+
 
 
 // Event Listener on form's submit button
