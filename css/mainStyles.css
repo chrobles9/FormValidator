@@ -66,6 +66,7 @@ header {
   margin: 0 auto 1rem auto;
 }
 
+
 .form button {
   cursor: pointer;
   background-color: var(--button);
