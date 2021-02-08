@@ -5,43 +5,43 @@
 }
 
 * {
-  box-sizing: border-box;
   /* prevents padding from adjusting widths of elements */
+  box-sizing: border-box;
 }
 
 body {
   display: flex;
   font-family: "Roboto", sans-serif;
   background-color: #e9e9e9;
-  /* justify-content: center;
-  align-items: center; */
   margin: 0 auto;
   flex-direction: column;
   min-height: 100vh;
-  min-width: 250px;
+  min-width: 245px;
 }
 
 header {
   text-align: center;
-  margin-bottom: 1.5rem;
 }
 
 /* Form title styles */
 .mainHeading {
   font-family: "Ubuntu", sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  margin: 1rem auto;
 }
 
-.accentRed{
+/* Accent color styles for letter coloring in subheading  */
+.accentRed {
   color: var(--error);
 }
 
-.subHeading {
-  font-size: 1em;
+.subHeadContainer {
+  margin: 1.5rem auto 2.5rem;
 }
 
-.createdHeading{
-  font-size: 1em;
+.subHeading {
+  font-size: 1rem;
+  margin: 0.5em auto 0;
 }
 
 /* Form container styles */
@@ -61,7 +61,7 @@ header {
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-style: italic;
   margin: 0 auto 1rem auto;
 }
@@ -76,12 +76,10 @@ header {
   padding: 1rem;
   margin: 2rem auto 1rem;
   width: 100%;
-  /* display: block; */
 }
 
 .formControl {
   margin-bottom: 1rem;
-  padding-bottom: 1rem;
   position: relative;
 }
 
@@ -90,7 +88,7 @@ header {
   color: #777;
   /* block displays input and label  */
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5em;
 }
 
 .formControl input {
@@ -102,11 +100,10 @@ header {
   padding: 1rem;
 }
 
-/* styles for input box that user has in focus  */
+/* styles for input box that user has while in focus  */
 .formControl input:focus {
   /* removes outline from inputs while in focus  */
   outline: 0;
-
   border-color: #777;
 }
 
@@ -133,6 +130,7 @@ header {
   visibility: visible;
 }
 
+/* Limits width of form to prevent distortion on larger viewports */
 @media only screen and (min-width: 426px) {
   .container {
     width: 400px;
