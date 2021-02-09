@@ -85,7 +85,11 @@ function checkEmail(input) {
 
 
 // TODO: Confirm Passwords match
-
+function checkPasswords(inputOne, inputTwo){
+  if(inputOne.value != inputTwo.value){
+    showError(inputTwo, 'Passwords do not match');
+  }
+}
 
 
 
@@ -105,6 +109,7 @@ form.addEventListener("submit", function (e) {
   checkInputLength(passwordConfirm, 6, 20);
   // Check email input for valid email address
   checkEmail(email);
-
+  // Check for matching passwords 
+  checkPasswords(password, passwordConfirm)
 
 });
