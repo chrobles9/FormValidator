@@ -48,17 +48,25 @@ function correctErrorMessages(input) {
   }
 }
 
-function checkUserName(input, min, max) {
+function checkInputLength(input, min, max) {
   if (input.value.length < min && input.value.length > 0) {
+    if (input.id === "passwordConfirm") {
+      // Corrects the second password error message displayed to the user from "passwordConfirm must be at least ${min} characters" to "Password must be at least ${min} characters"
+      showError(input, `Password must be at least ${min} characters`);
+    } else{
     showError(
       input,
-      `${capitalizeInputName(input)} must be at least 4 characters`
-    );
+      `${capitalizeInputName(input)} must be at least ${min} characters`
+    );}
   } else if (input.value.length > max) {
+    if (input.id === "passwordConfirm") {
+      // Corrects the second password error message displayed to the user from "passwordConfirm must be at least ${min} characters" to "Password must be at least ${min} characters"
+      showError(input, `Password must be less than ${max} characters`);
+    } else{
     showError(
       input,
-      `${capitalizeInputName(input)} must less than 15 characters`
-    );
+      `${capitalizeInputName(input)} must less than ${max} characters`
+    );}
   }
 }
 
@@ -75,9 +83,13 @@ function checkEmail(input) {
   }
 }
 
-// TODO: Password length checkBlank
 
 // TODO: Confirm Passwords match
+
+
+
+
+
 
 // Event Listener on form's submit button
 form.addEventListener("submit", function (e) {
@@ -86,8 +98,13 @@ form.addEventListener("submit", function (e) {
 
   // Check form for blank input from user
   checkBlank(formData);
-  // Check username for the required length of 4 to 15 characters
-  checkUserName(username, 4, 15);
+  // Check input for the required length of characters
+  checkInputLength(username, 4, 15);
+  // Check both password lengths for the required length
+  checkInputLength(password, 6, 20);
+  checkInputLength(passwordConfirm, 6, 20);
   // Check email input for valid email address
   checkEmail(email);
+
+
 });
