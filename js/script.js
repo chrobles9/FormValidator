@@ -26,12 +26,8 @@ function showSuccess(input) {
 function checkBlank(input) {
   formData.forEach(function (input) {
     if (input.value.trim() === "") {
-      // Corrects the second password displayed to the user from passwordConfirm to Password
-      if (input.id === "passwordConfirm") {
-        showError(input, `Password is required`);
-      } else {
-        showError(input, `${capitalizeInputName(input)} is required`);
-      }
+      // Corrects the second password error message displayed to the user from "passwordConfirm is required" to "Password is required"
+      correctErrorMessages(input);
     } else {
       showSuccess(input);
     }
@@ -43,39 +39,55 @@ function capitalizeInputName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
-// Check username for the required length of 4 to 15 characters
-function checkUserName(input, min, max){
-  if(input.value.length < min && input.value.length >0){
-    showError(input, `${capitalizeInputName(input)} must be at least 4 characters`);
-  }else if (input.value.length > max){
-    showError(input, `${capitalizeInputName(input)} must less than 15 characters`);
+// Corrects the second password error message displayed to the user from "passwordConfirm is required" to "Password is required"
+function correctErrorMessages(input) {
+  if (input.id === "passwordConfirm") {
+    showError(input, "Password is required");
+  } else {
+    showError(input, `${capitalizeInputName(input)} is required`);
   }
 }
 
-// TODO: valid email checkBlank
+function checkUserName(input, min, max) {
+  if (input.value.length < min && input.value.length > 0) {
+    showError(
+      input,
+      `${capitalizeInputName(input)} must be at least 4 characters`
+    );
+  } else if (input.value.length > max) {
+    showError(
+      input,
+      `${capitalizeInputName(input)} must less than 15 characters`
+    );
+  }
+}
 
+// Use JavaScript to validate email input from user instead of HTML5 built in feature
+function checkEmail(input) {
+  const validEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (input.value.trim() === "") {
+    // Corrects the email error message to show "Email is required" for blank input from user instead of "Enter a valid email address"
+    showError(input, "Email address is required");
+  } else if (validEmail.test(input.value.trim())) {
+    showSuccess(input);
+  } else {
+    showError(input, "Enter a valid email address");
+  }
+}
 
 // TODO: Password length checkBlank
 
-
-// TODO: Confirm Passwords match 
-
-
-
-
-
-
-
+// TODO: Confirm Passwords match
 
 // Event Listener on form's submit button
 form.addEventListener("submit", function (e) {
   // Need to prevent default form submission in order to interception form input for validation
   e.preventDefault();
 
-  // Check form for blank input from user 
+  // Check form for blank input from user
   checkBlank(formData);
   // Check username for the required length of 4 to 15 characters
   checkUserName(username, 4, 15);
-
-
+  // Check email input for valid email address
+  checkEmail(email);
 });

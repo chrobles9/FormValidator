@@ -4,73 +4,88 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form Validation</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/mainStyles.css" />
     <script src="js/script.js" defer></script>
   </head>
   <body>
+
     <header>
       <h1 class="mainHeading">Form Validation</h1>
-
+      <!-- Styling container for title subheading  -->
       <div class="subHeadContainer">
-      <h2 class="subHeading">Powered By <span class="accentRed">J</span>ava<span class="accentRed">S</span>cript</h2>
-      <h3 class="subHeading">Created By <span class="accentRed">C</span>arlos <span class="accentRed">R</span>obles</h3>
-    </div>
-
+        <h2 class="subHeading">
+          Created By <span class="accentRed">C</span>arlos
+          <span class="accentRed">R</span>obles
+        </h2>
+        <h3 class="subHeading">
+          Powered By <span class="accentRed">J</span>ava<span class="accentRed"
+            >S</span
+          >cript
+        </h3>
+      </div>
     </header>
+
+    <!-- Styling container for form  -->
     <main class="container">
+
       <form id="form" class="form">
-          <legend class="formHeading">Register With Us!</legend>
+        <legend class="formHeading">Register With Us!</legend>
 
-          <div class="formControl">
-            <label for="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              autocomplete="username"
-              placeholder="Enter username"
-            />
-            <span class="errorMessage">Error Message</span>
-          </div>
+        <div class="formControl">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            autocomplete="username"
+            placeholder="Enter username"
+          />
+          <span class="errorMessage">Error Message</span>
+        </div>
 
-          <div class="formControl">
-            <label for="email">Email Address:</label>
-            <input
-              type="text"
-              id="email"
-              autocomplete="email"
-              placeholder="Enter email address"
-            />
-            <span class="errorMessage">Error Message</span>
-          </div>
+        <div class="formControl">
+          <!-- Uses JavaScript to validate email input from user instead of HTML5 built in feature -->
+          <label for="email">Email Address:</label>
+          <input
+            type="text"
+            id="email"
+            autocomplete="email"
+            placeholder="Enter email address"
+          />
+          <span class="errorMessage">Error Message</span>
+        </div>
 
-          <div class="formControl">
-            <label for="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              autocomplete="password"
-              placeholder="Enter password"
-            />
-            <span class="errorMessage">Error Message</span>
-          </div>
+        <div class="formControl">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            autocomplete="password"
+            placeholder="Enter password"
+          />
+          <span class="errorMessage">Error Message</span>
+        </div>
 
-          <div class="formControl">
-            <label for="passwordConfirm">Confirm Password:</label>
-            <input
-              type="password"
-              id="passwordConfirm"
-              autocomplete="password"
-              placeholder="Enter password again"
-            />
-            <span class="errorMessage">Error Message</span>
-          </div>
-          
-          <button id="submit">Submit</button>
+        <div class="formControl">
+          <label for="passwordConfirm">Confirm Password:</label>
+          <input
+            type="password"
+            id="passwordConfirm"
+            autocomplete="password"
+            placeholder="Enter password again"
+          />
+          <span class="errorMessage">Error Message</span>
+        </div>
 
+        <button id="submit">Submit</button>
+        
       </form>
+
     </main>
   </body>
 </html>
